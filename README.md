@@ -21,12 +21,77 @@ The project consists of the following classes:
  **ChatAdapterDemo.java**: Demonstrates the usage of the `ChatServiceAdapter`.
 
 
+## Code Explanation
+### Singleton Pattern
+#### ConfigurationManager:
 
-## **How to Compile and Run**
+Ensures only one instance of the configuration manager exists.
 
-### **Prerequisites**
- Ensure you have Java Development Kit (JDK) installed on your system.
- Clone this repository to your local machine.
+Loads default configurations (e.g., maxPlayers, defaultLanguage).
 
-### **Steps**
+Provides methods to retrieve and print configurations.
+
+### ConfigManagerDemo:
+
+Demonstrates how to use the ConfigurationManager to access and print configurations.
+
+### Adapter Pattern
+#### LegacyChatService:
+
+Simulates a legacy chat service with a method sendLegacyMessage.
+
+#### ChatService:
+
+Defines the new interface with a method sendMessage.
+
+#### ChatServiceAdapter:
+
+Implements the ChatService interface.
+
+Adapts the sendMessage method to call the legacy sendLegacyMessage method.
+
+#### ChatAdapterDemo:
+
+Demonstrates how to use the ChatServiceAdapter to send a message through the legacy service.
+
+Design Patterns Used
+Singleton Pattern
+Ensures a single instance of the ConfigurationManager exists.
+
+Provides a global point of access to configuration settings.
+
+Adapter Pattern
+Bridges the gap between the legacy LegacyChatService and the new ChatService interface.
+
+Allows the legacy service to be used in a new system without modifying its code.
+
+## Testing
+### ConfigurationManager
+#### The ConfigManagerDemo class tests the following:
+
+Retrieval of configuration values (e.g., maxPlayers, defaultLanguage).
+
+Printing all configuration settings.
+
+### ChatServiceAdapter
+#### The ChatAdapterDemo class tests the following:
+
+Sending a message through the adapter.
+
+Verifying that the output matches the legacy format (Legacy Chat: <message>).
+
+### Code Quality
+#### Single Responsibility Principle:
+
+Each class has a single responsibility (e.g., ConfigurationManager manages configurations, ChatServiceAdapter adapts the legacy service).
+
+#### Dependency Inversion Principle:
+
+The ChatServiceAdapter depends on the ChatService interface, not concrete implementations.
+
+#### Naming Conventions:
+
+Class names use PascalCase (e.g., ConfigurationManager).
+
+Method and variable names use camelCase (e.g., getConfig, sendMessage).
 
