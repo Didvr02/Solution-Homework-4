@@ -1,3 +1,5 @@
+package Assignment2;
+
 public class ChatServiceAdapter implements ChatService {
     private final LegacyChatService legacyChatService;
 
